@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default async function AboutPage(){
+export default function AboutPage(){
 
    return(
       <main>
