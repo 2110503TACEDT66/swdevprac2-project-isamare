@@ -15,7 +15,7 @@ export default function Card ( {  hospitalName , imgSrc } : {hospitalName:string
                     className='object-cover rounded-lg'
                     />
                 </div>
-                <div className='w-full h-[15%] p-[10px]'>{hospitalName}</div>  
+                {/* <div className='w-full h-[15%] p-[10px]'>{hospitalName}</div>   */}
         </InteractiveCard>
     );
 }

@@ -41,9 +41,9 @@ export default function CardPanel() {
                     ))
                 } 
             </div> 
-            { Array.from(ratingList).map(([hospital, rating]) => <div key={hospital} data-testid={hospital}
+            {/* { Array.from(ratingList).map(([hospital, rating]) => <div key={hospital} data-testid={hospital}
                 onClick={ () => dispatchRating({type:'remove',hospitalName:hospital,rating:0 })}>
-                    {hospital} Rating: {rating} </div>)}    
+                    {hospital} Rating: {rating} </div>)}     */}
         </div>
         
     );
