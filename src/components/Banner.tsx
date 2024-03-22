@@ -14,7 +14,7 @@ export default async function Banner(){
    const profile = await getUserProfile(session.user.token)*/
    
    return (
-      <div className='block w-[100vw] h-[75vh] relation '>
+      <div className='block p-[5px] m-0 w-[100vw] h-[90vh] relative'>
          <Image src = {'/img/cover1.png'}
          alt='cover'
          fill={true}
