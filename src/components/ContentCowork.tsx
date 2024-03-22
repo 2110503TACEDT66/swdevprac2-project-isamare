@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-
-
 export default function ContentCowork() {
    return(
       <div className="bg-white flex flex-row justify-center">
