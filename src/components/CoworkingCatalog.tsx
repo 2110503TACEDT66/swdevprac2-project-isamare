@@ -1,0 +1,22 @@
+import Card from "./Card"
+import Link from "next/link"
+
+export default async function HospitalCatalog({coworkingsJson}:{coworkingsJson:Promise<CoworkingJson>}){
+
+   const coworkingsJsonReady = await coworkingsJson
+
+   return(
+      <>
+      Explore {coworkingsJsonReady.count} model in our Catalog
+      <div className="flex flex-row flex-wrap m-5  justify-around content-around">
+            {
+               coworkingsJsonReady.data.map((CoworkingItem:CoworkingItem)=>(
+                  <Link href={`/coworking/${CoworkingItem.id}`} className="w-1/5">
+                     <Card hospitalName={CoworkingItem.name} imgSrc={CoworkingItem.picture} />
+                  </Link>
+               ))
+            }
+      </div>
+      </>
+   )
+}
