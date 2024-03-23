@@ -45,18 +45,18 @@ export default function Navbar(){
               {/* Add more navigation links here */}
               {
                   session?<div className='flex justify-center'><Image src={'/img/userlogo.png'} className='h-[40%] mt-11 w-auto mb-auto mt-auto' 
-                  alt='logo' width={0} height={0} sizes='20vh' onClick={toggleMenuL}/></div>
+                  alt='logo' width={0} height={0} sizes='15vh' onClick={toggleMenuL}/></div>
                   :<TopMenuItem title='Sign in' pageRef='/api/auth/signin'/>
               }
             </div>
           </div>
 
           {isMenuOpenL?(
-            <div className='lg:visible md:invisible sm:invisible'>
+            <div className='lg:visible md:visible'>
               <div className="absolute  right-0 z-50 mt-[79px] w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</Link>
                 <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</Link>
-                <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</Link>
+                <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</Link>
               </div>
           </div>
           ):null}
