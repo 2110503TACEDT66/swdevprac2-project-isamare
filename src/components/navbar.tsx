@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { useSession } from 'next-auth/react'
 
 export default function Navbar(){
+
   const {data: session} = useSession()
   
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -40,6 +41,7 @@ export default function Navbar(){
           <div className="hidden sm:block sm:ml-4">
             <div className="flex">
               <TopMenuItem title='Home' pageRef='/' />
+              <TopMenuItem title='Coworking' pageRef='/coworking' />
               <TopMenuItem title='Booking' pageRef='/booking' />
               <TopMenuItem title='About Us' pageRef='/about' />
               {/* Add more navigation links here */}
@@ -53,10 +55,12 @@ export default function Navbar(){
 
           {isMenuOpenL?(
             <div className='lg:visible md:visible'>
-              <div className="absolute  right-0 z-50 mt-[79px] w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</Link>
+              <div className="absolute  right-0 z-50 mt-[77px] w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className="block px-4 py-2 text-sm text-gray-700 "> {session?.user?.name}</div>
+                <hr className="border-gray-300 mt-1" />
+                <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</Link>
                 <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</Link>
-                <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</Link>
+                <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-b-md">Logout</Link>
               </div>
           </div>
           ):null}
@@ -90,7 +94,7 @@ export default function Navbar(){
           {
                   session?
                   <div>
-                    <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</Link>
+                    <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</Link>
                     <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</Link>
                     <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</Link>
                   </div>

@@ -1,7 +1,8 @@
+'use client'
 import { Select,MenuItem, TextField } from "@mui/material"
 
 
-export default async function BookingPage(){
+export default function BookingPage(){
    return (
       <main className="flex justify-center mt-10">
          <div className="text-center font-extrabold text-xl text-[#252645]">New Booking</div>
