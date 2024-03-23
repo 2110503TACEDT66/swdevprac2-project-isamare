@@ -20,3 +20,5 @@ interface CoworkingItem {
     pagination: Object,
     data: CoworkingItem[]
   }
+
+  

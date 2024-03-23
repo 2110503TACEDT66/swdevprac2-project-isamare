@@ -22,7 +22,7 @@ export default function Navbar(){
   }
 
   const {data: session} = useSession()
-  console.log(session)
+  console.log(session?.user._id)
 
   return (
 

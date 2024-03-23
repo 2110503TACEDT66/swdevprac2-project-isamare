@@ -15,7 +15,7 @@ export default async function Profile() {
             <table className="table-auto border-separate border-spacing-2 p-5">
                 <tbody>
                     <tr><td>Email</td><td>{profile.data.email}</td></tr>
-                    <tr><td>Tel.</td><td>{profile.data.tel}</td></tr>
+                    <tr><td>Tel.</td><td>{profile.data.telephone}</td></tr>
                     <tr><td>Member Since</td><td>{createdAt.toString()}</td></tr>
                 </tbody>
             </table>
