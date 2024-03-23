@@ -7,11 +7,9 @@ import Image from 'next/image'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { useState } from 'react';
-import { useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react';
 
 export default function Navbar(){
-
-  const {data: session} = useSession()
   
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuOpenL, setIsMenuOpenL] = useState(false)
@@ -22,6 +20,9 @@ export default function Navbar(){
   const toggleMenuL = () => {
     setIsMenuOpenL(!isMenuOpenL) //!false = true
   }
+
+  const {data: session} = useSession()
+  console.log(session)
 
   return (
 
@@ -47,8 +48,11 @@ export default function Navbar(){
               {/* Add more navigation links here */}
               {
                   session?<div className='flex justify-center'><Image src={'/img/userlogo.png'} className='h-[40%] mt-11 w-auto mb-auto mt-auto' 
-                  alt='logo' width={0} height={0} sizes='15vh' onClick={toggleMenuL}/></div>
-                  :<TopMenuItem title='Sign in' pageRef='/api/auth/signin'/>
+                  alt='logo' width={0} height={0} sizes='15vh' onClick={toggleMenuL}/>
+                  </div>
+                  :<TopMenuItem title='Login' pageRef='/login'/>
+                  
+                  // <TopMenuItem title='Sign in' pageRef='/api/auth/signin'/>
               }
             </div>
           </div>
