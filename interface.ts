@@ -5,7 +5,10 @@ interface CoworkingItem {
     district: string,
     province: string,
     postalcode: string,
-    tel: string,
+    telephone: string,
+    region:string,
+    opentime:string,
+    closetime:string,
     picture: string,
     __v: number,
     id: string

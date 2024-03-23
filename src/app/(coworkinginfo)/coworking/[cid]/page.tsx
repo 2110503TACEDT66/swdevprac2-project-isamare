@@ -24,8 +24,10 @@ export default async function CoworkingDetailPage({params}:{params:{cid:string}}
             />
             <div className="text-md mx-5 text-left">{ coworkingDetail.data.description }
                <div className="text-md mx-5">{ coworkingDetail.data.name }</div>
-               <div className="text-md mx-5">{ coworkingDetail.data.address } { coworkingDetail.data.district} { coworkingDetail.data.province} { coworkingDetail.data.postalcode} </div>
-               <div className="text-md mx-5">{ coworkingDetail.data.tel }</div>
+               <div className="text-md mx-5">{ coworkingDetail.data.address } { coworkingDetail.data.district} { coworkingDetail.data.province} { coworkingDetail.data.region} { coworkingDetail.data.postalcode} </div>
+               <div className="text-md mx-5">{ coworkingDetail.data.telephone }</div>
+               <div className="text-md mx-5">{ coworkingDetail.data.opentime } - {coworkingDetail.data.closetime}</div>
+
             </div>
          </div>
       </main>
