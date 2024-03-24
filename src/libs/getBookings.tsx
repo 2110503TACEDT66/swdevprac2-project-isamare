@@ -1,11 +1,13 @@
-import { useSession } from "next-auth/react"
+export default async function getBookings(token:string) {
+   const response = await fetch("https://coworking-reservation-app-isamare.vercel.app//api/project/reservations", {
+      method: "GET",
+      headers: {
+         authorization: `Bearer ${token}`,
+      }
+   })
 
-export default async function getCoworkings() {
-    const {data: session} = useSession()
-
-   const response = await fetch(`https://coworking-reservation-app-isamare.vercel.app/api/project/reservations?${session?.user.token}`)
    if(!response.ok){
-      throw new Error("Failed to fetch coworkings")
+      throw new Error("Failed to fetch bookings")
    }
    return await response.json()
 }

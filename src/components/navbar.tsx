@@ -99,7 +99,7 @@ export default function Navbar(){
                   session?
                   <div>
                     <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>My Profile</Link>
-                    <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>My Bookings</Link>
+                    <Link href={'/mybooking'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>My Bookings</Link>
                     <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>Logout</Link>
                   </div>
                   

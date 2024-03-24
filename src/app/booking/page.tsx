@@ -22,6 +22,7 @@ export default function Booking() {
     const name = urlParams.get('name')
 
     const dispatch = useDispatch<AppDispatch>()
+    const [hasBooked, setHasBooked] = useState(false)
 
     const book = async () => {
         if (cid && name && user && bookDate &&  start && end) {
@@ -37,6 +38,7 @@ export default function Booking() {
             try {
                const booking = await postBooking(session.user.token, item);
                console.log("Booking result:", booking);
+               setHasBooked(true)
                // Dispatch any action if needed
            } catch (error) {
                console.error("Error occurred while booking:", error);
@@ -68,7 +70,10 @@ export default function Booking() {
                <TimePicker className="bg-white" value={end} onChange={(newValue) => {setEnd(newValue)}}/>
                </LocalizationProvider>
             </div>
-            <button className="block rounded-md bg-lime-700 hover:bg-lime-900 px-3 py-2 text-white shadow-sm" onClick={book}>Book</button>
+            <button className="block rounded-md bg-lime-700 hover:bg-lime-900 px-3 py-2 text-white shadow-sm" onClick={book}>
+            {
+                hasBooked?'Booked':'Book This'
+            }</button>
         </main>
     );
 }
