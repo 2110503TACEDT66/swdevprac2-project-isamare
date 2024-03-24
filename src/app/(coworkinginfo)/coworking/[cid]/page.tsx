@@ -1,5 +1,6 @@
 import getCoworking from "@/libs/getCoworking"
 import Image from "next/image"
+import Link from "next/link"
 
 export default async function CoworkingDetailPage({params}:{params:{cid:string}}){
 
@@ -27,7 +28,9 @@ export default async function CoworkingDetailPage({params}:{params:{cid:string}}
                <div className="text-md mx-5">{ coworkingDetail.data.address } { coworkingDetail.data.district} { coworkingDetail.data.province} { coworkingDetail.data.region} { coworkingDetail.data.postalcode} </div>
                <div className="text-md mx-5">{ coworkingDetail.data.telephone }</div>
                <div className="text-md mx-5">{ coworkingDetail.data.opentime } - {coworkingDetail.data.closetime}</div>
-
+               <Link href={`/booking?id=${params.cid}&name=${coworkingDetail.data.name}`}>
+                    <button className="block rounded-md bg-lime-700 hover:bg-lime-900 px-3 py-2 text-white shadow-sm">Make Reservation</button>
+                </Link>
             </div>
          </div>
       </main>

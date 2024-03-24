@@ -26,7 +26,7 @@ export default function Navbar(){
 
   return (
 
-    <div className="h-[146px] w-auto bg-white fixed top-0 left-0 right-0 z-40">
+    <div className="h-[146px] w-auto bg-white fixed top-0 left-0 right-0 z-30">
       <div className="max-w-10xl h-[146px] mx-auto px-1 sm:px-6 lg:px-8 py-9 ">
         <div className="relative flex items-center justify-between h-16">
           {/* Navbar title */}
@@ -62,7 +62,7 @@ export default function Navbar(){
                 <div className="block px-4 py-2 text-sm text-gray-700 "> {session?.user?.name}</div>
                 <hr className="border-gray-300 mt-1" />
                 <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Profile</Link>
-                <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Bookings</Link>
+                <Link href={'/mybooking'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Bookings</Link>
                 <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-b-md" onClick={toggleMenuL}>Logout</Link>
               </div>
           </div>
