@@ -43,7 +43,6 @@ export default function Navbar(){
             <div className="flex">
               <TopMenuItem title='Home' pageRef='/' />
               <TopMenuItem title='Coworking' pageRef='/coworking' />
-              <TopMenuItem title='Booking' pageRef='/booking' />
               <TopMenuItem title='About Us' pageRef='/about' />
               {/* Add more navigation links here */}
               {
@@ -62,9 +61,9 @@ export default function Navbar(){
               <div className="absolute  right-0 z-50 mt-[77px] w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="block px-4 py-2 text-sm text-gray-700 "> {session?.user?.name}</div>
                 <hr className="border-gray-300 mt-1" />
-                <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</Link>
-                <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</Link>
-                <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-b-md">Logout</Link>
+                <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Profile</Link>
+                <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Bookings</Link>
+                <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-b-md" onClick={toggleMenuL}>Logout</Link>
               </div>
           </div>
           ):null}
@@ -92,18 +91,19 @@ export default function Navbar(){
         <div className="md:hidden" id="mobile-menu">
         <div className="absolute right-0 z-40 mt-0 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" id="mobile-menu">
           {/* Add more navigation links here */}
-          <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Home</Link>
-          <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Booking</Link>
-          <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">About us</Link>
+          <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>Home</Link>
+          <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>Booking</Link>
+          <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>About us</Link>
+          
           {
                   session?
                   <div>
-                    <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</Link>
-                    <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Bookings</Link>
-                    <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</Link>
+                    <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>My Profile</Link>
+                    <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>My Bookings</Link>
+                    <Link href={'/api/auth/signout'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>Logout</Link>
                   </div>
                   
-                  :null
+                  :<Link href={'/login'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-b-md" onClick={toggleMenu}>Login</Link>
           }
         </div>
       </div>
