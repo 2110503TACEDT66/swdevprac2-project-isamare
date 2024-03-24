@@ -7,7 +7,8 @@ export interface BookingItem {
   userId: string
 }
 
-export interface CoworkingItem {
+
+export interface  CoworkingItem {
   _id: string,
   name: string,
   address: string,
