@@ -16,7 +16,7 @@ export default async function postBooking(token: string, bookingItem: BookingIte
     })
     
     if(!response.ok){
-       throw new Error("Cannot post booking")
+      return await response.json()
     }
 
     return await response.json()

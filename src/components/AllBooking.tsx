@@ -1,21 +1,37 @@
 import Link from "next/link"
 import { BookingItem2, BookingJson } from "../../interface"
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import deleteBooking from "@/libs/deleteBooking";
 
-export default async function AllBooking({bookingsJson}:{bookingsJson:Promise<BookingJson>}){
+export default async function AllBooking({bookingsJson}: {bookingsJson: Promise<BookingJson>}){
 
    const bookingsJsonReady = await bookingsJson
 
+   /*const session = await getServerSession(authOptions)
+    if (!session || !session.user.token) return null
+
+    const handleDeleteBooking = async (token: string, bookingItem: BookingItem2) => {
+        const response = await deleteBooking(token, bookingItem);
+        if (response.success == true) {
+          alert('You deleted')
+        } else if (response.success == false){
+         alert(response.message)
+        }
+    };*/
+
    return(
       <>
-      You have {bookingsJsonReady.count} bookings
+      <div className="text-lg font-bold text-center mt-10">You have {bookingsJsonReady.count} bookings</div>
       <div className="flex min-h-full w-auto flex-1 flex-col justify-center rounded-3xl px-6 py-12 md:px-15 md:mx-20 lg:mx-[200px]">
             {
                bookingsJsonReady.data.map((BookingItem2:BookingItem2)=>(
-                <div className="bg-white p-5 rounded-3xl drop-shadow-xl w-auto" key={BookingItem2.createAt}>
+                <div className="bg-white p-5 rounded-3xl drop-shadow-xl w-auto m-3" key={BookingItem2.createAt}>
                 <div className="text-xl">Reserve at {BookingItem2.coworking?.name}</div>
                 <div className="text-md">From {BookingItem2.start} to {BookingItem2.end}</div>
                 <div className="text-md">Date {BookingItem2.apptDate.split('T')[0]}</div>
                 <div className="text-md">By {BookingItem2.user}</div>
+                
                 <button className="block rounded-md bg-black hover:bg-indigo-900 px-3 py-2 text-white shadow-sm right-5 bottom-5"
                 >Remove this</button>
             </div>

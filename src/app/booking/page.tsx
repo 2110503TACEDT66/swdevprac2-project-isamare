@@ -35,15 +35,15 @@ export default function Booking() {
                userId: user
             }
             console.log(item)
-            try {
-               const booking = await postBooking(session.user.token, item);
-               console.log("Booking result:", booking);
-               setHasBooked(true)
-               // Dispatch any action if needed
-           } catch (error) {
-               console.error("Error occurred while booking:", error);
-               // Handle error as needed
-           }
+            
+            const booking = await postBooking(session.user.token, item);
+            console.log("Booking result:", booking);
+            if (booking.success == true) {
+                setHasBooked(true)
+            }
+            else if (booking.success == false) {
+                alert(booking.message)
+            }
         }
     }
 
