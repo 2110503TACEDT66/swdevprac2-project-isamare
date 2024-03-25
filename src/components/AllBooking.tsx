@@ -53,9 +53,9 @@ export default async function AllBooking({
                 </Link>
               </div>
               <div className="ml-5">
-                <button className="block rounded-md bg-black hover:bg-indigo-900 px-3 py-2 text-white shadow-sm">
-                  Delete
-                </button>
+              <Link href={`/mybooking/delete/${BookingItem2._id}`}>
+                <button className="block rounded-md bg-black hover:bg-indigo-900 px-3 py-2 text-white shadow-sm right-5 bottom-5"
+                >Remove this</button></Link>
               </div>
             </div>
           </div>
