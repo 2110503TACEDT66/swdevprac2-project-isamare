@@ -10,8 +10,6 @@ export default async function postBooking(token: string, bookingItem: BookingIte
        },
        body: JSON.stringify({
         apptDate: bookingItem.bookDate,
-        /*user: bookingItem.userId,
-        coworking: bookingItem.coworkingId,*/
         start: bookingItem.start,
         end: bookingItem.end
      }),

@@ -9,15 +9,7 @@ export default async function CoworkingDetailPage({params}:{params:{cid:string}}
 
    const coworkingDetail = await getCoworking(params.cid)
    const session = await getServerSession(authOptions)
-   /**
-    * Mock Data for Demontration
-    */
-   // const mockHospitalRepo = new Map()
-   // mockHospitalRepo.set("001",{name: "Chulalongkorn Hospital",image: "/img/chula.jpg"})
-   // mockHospitalRepo.set("002",{name: "Rajavithi Hospital",image: "/img/rajavithi.jpg"})
-   // mockHospitalRepo.set("003",{name: "Thammasat University Hospital",image: "/img/thammasat.jpg"})
-
-
+   
    return(
       <main className="text-center p-5">
          <h1 className="text-lg font-medium">Hospital ID {params.cid}</h1>
@@ -35,14 +27,12 @@ export default async function CoworkingDetailPage({params}:{params:{cid:string}}
                {session?
                <Link href={`/booking?id=${params.cid}&name=${coworkingDetail.data.name}`}>
                     <button className="block rounded-md bg-lime-700 hover:bg-lime-900 px-3 py-2 text-white shadow-sm">Make Reservation</button>
-                </Link>:<div>log in first</div>
+                </Link>:<Link href={`/login`}>
+                    <button className="block rounded-md bg-lime-700 hover:bg-lime-900 px-3 py-2 text-white shadow-sm">Log in to make Reservation</button>
+                </Link>
 }
             </div>
          </div>
       </main>
    )
 }
-
-// export async function generateStaticParams() {
-//    return [{hid:'001'},{hid:'002'},{hid:'003'}]
-// }

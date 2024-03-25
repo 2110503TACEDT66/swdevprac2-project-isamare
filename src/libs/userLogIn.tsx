@@ -1,6 +1,3 @@
-
-
-
 export default async function userLogIn(userEmail:string,userPassword:string){
    const response = await fetch("https://coworking-reservation-app-isamare.vercel.app/api/project/auth/login",{
       method: "POST",

@@ -40,7 +40,7 @@ export interface BookingItem2 {
                 name: string
                 province: string
                 id: string
-              }
+              }|null
   start: string
   end: string
   createAt: string
