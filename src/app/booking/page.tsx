@@ -13,6 +13,7 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import postBooking from "@/libs/postBooking";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import Link from "next/link";
 
 export default function Booking() {
     const {data: session} = useSession()
@@ -81,11 +82,9 @@ export default function Booking() {
                     </div>
                     
                 </div>
-                <button className="block m-auto rounded-md px-8 py-2 font-semibold text-white shadow-sm bg-[#252645] bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]" onClick={book}>
-                    {
-                        hasBooked?'Booked':'Book This'
+                {
+                        hasBooked?<Link href={'/mybooking'}><button className="block m-auto rounded-md px-8 py-2 font-semibold text-white shadow-sm bg-[#252645] bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]">View My Booking</button></Link>:<button className="block m-auto rounded-md px-8 py-2 font-semibold text-white shadow-sm bg-[#252645] bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]" onClick={book}>Book This</button>
                     }
-                </button>
             </div>
         </main>
     );
