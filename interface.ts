@@ -53,11 +53,8 @@ export interface BookingJson {
 }
 
 export interface User{
-  _id:string,
   name:string,
   email:string,
   telephone: string,
-  role: string,
   password:string,
-  token: string
 }

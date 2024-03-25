@@ -102,7 +102,7 @@ export default function LoginPage() {
             <p className="mt-10 text-center text-[13px] text-gray-500">
               New Customer OR don't have online account access?{" "}
               <Link
-                href={"/"}
+                href={"/register"}
                 className="font-semibold leading-6 text-[#5577CE]"
               >
                 register
