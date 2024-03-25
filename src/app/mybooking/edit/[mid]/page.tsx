@@ -10,43 +10,54 @@ import { useSession } from "next-auth/react";
 import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import postBooking from "@/libs/postBooking";
-
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import deleteBooking from "@/libs/deleteBooking";
+import { BookingItemEdit } from "../../../../../interface";
+import editBooking from "@/libs/editBooking";
 import Link from "next/link";
 
 export default function EditBookingPage({params}:{params:{mid:string}}) {
    const {data: session} = useSession()
    if (!session || !session.user.token) return null
+   
    const urlParams = useSearchParams()
-   const cid = urlParams.get('id')
-   const user = session?.user._id
-   const name = urlParams.get('name')
    
    
-   const [hasEdit, setHasEdit] = useState(false)
+   
+   const [hasEditBooking, setHasEditBooking] = useState(false)
 
-   const [bookDate, setBookDate] = useState<Dayjs|null>(null)
+   const [apptDate, setApptDate] = useState<Dayjs|null>(null)
     const [start, setStart] = useState<string|null>(null)
     const [end, setEnd] = useState<string|null>(null)
+   
+   const edit = async () => {
+      if ( apptDate &&  start && end) {
+          
+         const updateBooking = await editBooking(session.user.token,params.mid ,dayjs(apptDate).format("YYYY/MM/DD"),dayjs(start).format('HH:mm:ss'),dayjs(end).format('HH:mm:ss'));
+          
+          console.log("Booking result:", updateBooking);
+          if (updateBooking.success == true) {
+            setHasEditBooking(true)
+          }
+          else if (updateBooking.success == false) {
+              alert(updateBooking.message)
+          }
+      }
+  }
+
+   
    return(
       <main className="mt-8">
             <div className="bg-white  min-h-full w-auto rounded-3xl m-8 px-16 py-12 md:px-15 md:mx-20 relative ">
-            <div className="text-3xl  font-bold text-center mb-6 text-[#252645]">New Booking</div>
+            <div className="text-3xl  font-bold text-center mb-6 text-[#252645]">Edit Booking</div>
 
             <hr className="bg-gray-200 border-1 mb-6" />
             
-            
-            <div className="text-xl font-medium text-center">Coworking space: {name}</div>
                 
                 <div className="flex flex-wrap  justify-center  my-5 relative mb-8">
                     <div className=" space-y-2 ">
                         <div className="text-md text-left text-gray-600 ">Choose Date to Book</div>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker className="bg-white w-[300px]"
-                            value={bookDate} onChange={(value)=>{setBookDate(value)}}/>
+                            value={apptDate} onChange={(value)=>{setApptDate(value)}}/>
                         </LocalizationProvider>
                         <div className="text-md text-left text-gray-600">Start</div>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -59,9 +70,10 @@ export default function EditBookingPage({params}:{params:{mid:string}}) {
                     </div>
                     
                 </div>
-                <button className="block m-auto rounded-md px-8 py-2 font-semibold text-white shadow-sm bg-[#252645] bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]" >
+                <button className="block m-auto rounded-md px-8 py-2 font-semibold text-white shadow-sm bg-[#252645] bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]"
+                onClick={edit} >
                     {
-                        hasBooked?'Booked':'Book This'
+                        hasEditBooking?'Successful':'Edit'
                     }
                 </button>
             </div>

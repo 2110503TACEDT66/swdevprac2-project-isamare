@@ -1,11 +1,17 @@
+import { BookingItemEdit } from "../../interface"
 
 
-export default async function editBooking(token: string,bookingId: string){
+export default async function editBooking(token: string,bookingId: string, apptDate:string,start:string,end:string){
    const response = await fetch(`https://coworking-reservation-app-isamare.vercel.app/api/project/reservations/${bookingId}`,{
-       method: "UPDATE",
+       method: "PUT",
        headers: {
-            authorization: `Bearer ${token}`,
-       },
+         "Content-type":"application/json",
+         authorization: `Bearer ${token}`,
+       },body: JSON.stringify({
+         apptDate,
+         start,
+         end
+      }),
     })
     
     if(!response.ok){

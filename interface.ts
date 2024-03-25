@@ -46,6 +46,12 @@ export interface BookingItem2 {
   __v: string
 }
 
+export interface BookingItemEdit{
+  apptDate: string
+  start: string
+  end: string
+}
+
 export interface BookingJson {
   success: boolean,
   count: number,
