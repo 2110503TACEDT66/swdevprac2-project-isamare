@@ -46,15 +46,15 @@ export default async function AllBooking({
             <div className="text-md mt-2">By {BookingItem2.user}</div>
             <div className="mt-5 flex justify-end">
               <div className="ml-5">
-                <Link href={"/edit/" + BookingItem2._id}>
-                  <button className="block rounded-md bg-black hover:bg-indigo-900 px-3 py-2 text-white shadow-sm">
+                <Link href={"/mybooking/edit/" + BookingItem2._id}>
+                  <button className="block rounded-md bg-black hover:bg-indigo-900 px-6 py-2 text-white shadow-sm">
                     Edit
                   </button>
                 </Link>
               </div>
               <div className="ml-5">
               <Link href={`/mybooking/delete/${BookingItem2._id}`}>
-                <button className="block rounded-md bg-black hover:bg-indigo-900 px-3 py-2 text-white shadow-sm right-5 bottom-5"
+                <button className="block rounded-md bg-black hover:bg-indigo-900 px-6 py-2 text-white shadow-sm right-5 bottom-5"
                 >Remove this</button></Link>
               </div>
             </div>
