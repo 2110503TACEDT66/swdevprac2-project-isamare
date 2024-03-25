@@ -11,7 +11,7 @@ export default function Card({
 }) {
   return (
     <InteractiveCard contentName={coworkingName}>
-      <div className="w-full h-[70%] relative rounded-t-lg bg-white">
+      <div className="w-full h-[70%] relative rounded-t-lg bg-white mt-5">
         <Image
           src={imgSrc}
           alt="Product Picture"

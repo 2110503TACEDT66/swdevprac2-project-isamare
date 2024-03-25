@@ -56,19 +56,34 @@ export default function ContentCowork() {
           </div>
         </div>
 
-        <div
-          style={{
-            marginBottom: "100px",
-            display: "flex",
-            flexDirection: "row",
-            alignContent: "space-around",
-            justifyContent: "space-around",
-            flexWrap: "wrap",
-          }}
-        >
-          <Card coworkingName="Wolf Coworking Space" imgSrc="/img/card1.jpg" />
-          <Card coworkingName="Silom Coworking Space" imgSrc="/img/card2.jpg" />
-          <Card coworkingName="Coworking membership" imgSrc="/img/card3.jpg" />
+        <div className="block flex items-center justify-center overflow-hidden mb-20">
+          <div className="mr-20">
+            <Image
+              src={"/img/card1.jpg"}
+              alt="Wolf Coworking Space"
+              width={300}
+              height={300}
+              className="object-cover"
+            />
+          </div>
+          <div className="mr-20">
+            <Image
+              src={"/img/card2.jpg"}
+              alt="Wolf Coworking Space"
+              width={300}
+              height={300}
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <Image
+              src={"/img/card3.jpg"}
+              alt="Wolf Coworking Space"
+              width={300}
+              height={300}
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </div>
