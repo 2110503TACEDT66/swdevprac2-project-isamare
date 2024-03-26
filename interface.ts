@@ -83,3 +83,33 @@ export interface CoworkingItemCreate{
   closetime:string,
   picture:string
 }
+
+export interface UserItem {
+  _id: string
+  name: string
+  telephone: string
+  email: string
+  role: string
+  createdAt: string
+  __v: 0,
+  reservations: UserBookingItem[]
+  id: string
+}
+
+export interface UserBookingItem {
+  _id: string
+  apptDate: string
+  user: string
+  coworking: string
+  start: string
+  end: string
+  createAt: string
+  __v: string
+}
+
+export interface UserJson {
+  success: boolean,
+  count: number,
+  pagination: {}
+  data: UserItem[]
+}
