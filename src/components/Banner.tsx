@@ -14,11 +14,6 @@ export default function Banner() {
         className="object-cover rounded-t-lg"
         priority
       />
-      {/*{session ? (
-        <div className="z-30 absolute top-5 right-10 font-semibold text-white text-xl">
-          Welcome {session.user.name}
-        </div>
-      ) : null}*/}
     </div>
   );
 }
