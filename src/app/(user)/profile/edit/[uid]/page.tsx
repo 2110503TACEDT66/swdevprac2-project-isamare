@@ -23,12 +23,17 @@ export default function EditProfileUser({params}:{params:{uid:string}}) {
     e.preventDefault();
     const form = new FormData(e.target as HTMLFormElement);
     console.log(data.name);
-    if (data.name && data.email && data.telephone) {
-      const item: UserUpdate = {
-        name: data.name,
-        email: data.email,
-        telephone: data.telephone,
-      };
+    if (data.name || data.email || data.telephone) {
+      const item: Partial<UserUpdate> = {}
+        if (data.name !== "") {
+          item.name = data.name
+        }
+        if (data.email !== "") {
+          item.email = data.email
+        }
+        if (data.telephone !== "") {
+          item.telephone = data.telephone
+        }
       console.log(item)
             
             const editing = await editUserProfile(session.user.token, params.uid,item);
@@ -73,7 +78,7 @@ export default function EditProfileUser({params}:{params:{uid:string}}) {
                     onChange={(e) => {
                       setData({ ...data, name: e.target.value });
                     }}
-                    required
+                    //required
                     className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -96,7 +101,7 @@ export default function EditProfileUser({params}:{params:{uid:string}}) {
                     onChange={(e) => {
                       setData({ ...data, email: e.target.value });
                     }}
-                    required
+                    //required
                     className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -119,7 +124,7 @@ export default function EditProfileUser({params}:{params:{uid:string}}) {
                     onChange={(e) => {
                       setData({ ...data, telephone: e.target.value });
                     }}
-                    required
+                    //required
                     className="block w-full rounded-md border-0 py-1.5 pl-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
