@@ -3,6 +3,17 @@ import Link from "next/link";
 import { User } from "../../../interface";
 import { useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
+import dayjs, { Dayjs } from "dayjs";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { BookingItem } from "../../../interface";
+import { addBooking } from "@/redux/features/bookingSlice";
+import { useSession } from "next-auth/react";
+import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import postBooking from "@/libs/postBooking";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 import userRegister from "@/libs/userRegister";
 import { signIn } from "next-auth/react";
 
@@ -15,7 +26,7 @@ export default function CreateUser() {
     password: "",
   });
 
-  const editProfile = async (e: FormEvent) => {
+  const register = async (e: FormEvent) => {
     e.preventDefault();
     const form = new FormData(e.target as HTMLFormElement);
     console.log(data.name);
@@ -42,7 +53,7 @@ export default function CreateUser() {
     }
   };
 
-  
+  const [email, setEmail] = useState<string | null>(null);
 
   return (
     <>
@@ -53,7 +64,7 @@ export default function CreateUser() {
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" onSubmit={editProfile}>
+            <form className="space-y-6" onSubmit={register}>
               <div>
                 <label
                   htmlFor="name"
