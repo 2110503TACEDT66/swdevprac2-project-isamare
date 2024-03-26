@@ -8,7 +8,7 @@ import { CoworkingItemCreate } from "../../../interface";
 
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
-import postCoworking from "@/libs/postCoworking";
+import postCoworking from "@/libs/postCoworking"
 
 
 export default function Booking() {
