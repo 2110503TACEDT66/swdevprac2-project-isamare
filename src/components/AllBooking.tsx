@@ -11,18 +11,6 @@ export default async function AllBooking({
 }) {
   const bookingsJsonReady = await bookingsJson;
 
-  /*const session = await getServerSession(authOptions)
-    if (!session || !session.user.token) return null
-
-    const handleDeleteBooking = async (token: string, bookingItem: BookingItem2) => {
-        const response = await deleteBooking(token, bookingItem);
-        if (response.success == true) {
-          alert('You deleted')
-        } else if (response.success == false){
-         alert(response.message)
-        }
-    };*/
-
   return (
     <>
       <div className="text-[30px] font-bold text-center mt-10">
