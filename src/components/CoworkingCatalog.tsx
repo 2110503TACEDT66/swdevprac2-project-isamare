@@ -12,7 +12,7 @@ export default async function CoworkingCatalog({coworkingsJson}:{coworkingsJson:
       <div className="flex flex-row flex-wrap m-5  justify-around content-around">
             {
                coworkingsJsonReady.data.map((CoworkingItem:CoworkingItem)=>(
-                  <Link href={`/coworking/${CoworkingItem.id}`} className="w-1/5">
+                  <Link href={`/coworking/${CoworkingItem.id}`} className="w-1/6 m-1">
                      <Card coworkingName={CoworkingItem.name} imgSrc={CoworkingItem.picture} />
                   </Link>
                ))
