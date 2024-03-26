@@ -1,4 +1,4 @@
-'use client'
+
 
 import { useSearchParams } from "next/navigation";
 import dayjs, { Dayjs } from "dayjs";
@@ -13,7 +13,7 @@ import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 
-export default function Booking() {
+export default async function Booking() {
     const {data: session} = useSession()
     if (!session || !session.user.token || session?.user?.role!=='admin') return null
 
