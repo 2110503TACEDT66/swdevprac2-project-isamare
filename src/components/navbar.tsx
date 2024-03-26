@@ -63,10 +63,6 @@ export default function Navbar(){
                 <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-md" onClick={toggleMenuL}>My Profile</Link>
                 <Link href={'/mybooking'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Bookings</Link>
                 {
-                  session?.user?.role=='admin'?<Link href={'/newcoworking'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>Create Coworking</Link>
-                  :null
-                }
-                {
                   session?.user?.role=='admin'?<Link href={'/allusers'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>View All Users</Link>
                   :null
                 }

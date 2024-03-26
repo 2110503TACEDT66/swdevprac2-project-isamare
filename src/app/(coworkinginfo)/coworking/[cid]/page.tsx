@@ -47,17 +47,6 @@ export default async function CoworkingDetailPage({params}:{params:{cid:string}}
                      </Link>
                   }
             </div>
-            {
-                  session?.user?.role=='admin'?
-                     <div>
-                        <Link href={`/coworking/edit/${params.cid}` }>
-                           <button className="my-2 block rounded-md px-6 py-2 font-semibold text-white shadow-sm bg-[#252645] bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]">
-                           Edit
-                           </button>
-                        </Link>
-                     </div>
-                  :null
-            } 
          </div>
              
       </main>
