@@ -105,7 +105,7 @@ export default function Navbar(){
                   <div>
                     <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>My Profile</Link>
                     <Link href={'/mybooking'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>My Bookings</Link>
-                    <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => signOut()}>Logout</Link>
+                    <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-md" onClick={() => signOut({ callbackUrl: '/' })}>Logout</Link>
                   </div>
                   
                   :<Link href={'/login'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:rounded-b-md" onClick={toggleMenu}>Login</Link>
