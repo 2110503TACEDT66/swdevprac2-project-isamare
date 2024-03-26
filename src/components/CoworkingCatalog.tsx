@@ -23,10 +23,11 @@ export default async function CoworkingCatalog({
           padding: "8px",
         }}
       >
-        {coworkingsJsonReady.data.map((CoworkingItem: CoworkingItem) => (
+        {coworkingsJsonReady.data.map((CoworkingItem: CoworkingItem,index:number) => (
           <Link
             href={`/coworking/${CoworkingItem.id}`}
             className="w-[100%] sm:w-[50%] md:w-[30%] lg:w-[20%] p-2 sm:p-4 md:p-4 lg:p-7"
+            key={index}
           >
             <Card
               coworkingName={CoworkingItem.name}

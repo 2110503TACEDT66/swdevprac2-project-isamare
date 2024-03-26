@@ -64,6 +64,10 @@ export default function Navbar(){
                 <hr className="border-gray-300 mt-1" />
                 <Link href={'/profile'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Profile</Link>
                 <Link href={'/mybooking'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>My Bookings</Link>
+                {
+                  session?.user?.role=='admin'?<Link href={'/newcoworking'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={toggleMenuL}>Creat Coworking</Link>
+                  :null
+                }
                 <Link href={'/'} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" onClick={() => signOut()}>Logout</Link>
               </div>
           </div>

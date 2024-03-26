@@ -64,3 +64,16 @@ export interface User{
   telephone: string,
   password:string,
 }
+
+export interface CoworkingItemCreate{
+  name:string,
+  address:string,
+  district:string,
+  province:string,
+  postalcode:string,
+  telephone:string,
+  region:string,
+  opentime:string,
+  closetime:string,
+  picture:string
+}

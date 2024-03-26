@@ -15,7 +15,7 @@ export default async function editBooking(token: string,bookingId: string, apptD
     })
     
     if(!response.ok){
-        throw new Error("Failed to delete booking")
+      return await response.json()
     }
 
     return await response.json()

@@ -20,8 +20,6 @@ export default function EditBookingPage({params}:{params:{mid:string}}) {
    
    const urlParams = useSearchParams()
    
-   
-   
    const [hasEditBooking, setHasEditBooking] = useState(false)
 
    const [apptDate, setApptDate] = useState<Dayjs|null>(null)
@@ -32,7 +30,7 @@ export default function EditBookingPage({params}:{params:{mid:string}}) {
       if ( apptDate &&  start && end) {
           
          const updateBooking = await editBooking(session.user.token,params.mid ,dayjs(apptDate).format("YYYY/MM/DD"),dayjs(start).format('HH:mm:ss'),dayjs(end).format('HH:mm:ss'));
-          
+          console.log(updateBooking)
           console.log("Booking result:", updateBooking);
           if (updateBooking.success == true) {
             setHasEditBooking(true)

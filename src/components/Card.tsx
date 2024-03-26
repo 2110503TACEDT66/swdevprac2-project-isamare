@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import InteractiveCard from "./InteractiveCard";
+import Link from "next/link";
 
 export default function Card({
   coworkingName,
@@ -12,7 +13,7 @@ export default function Card({
   return (
     <InteractiveCard contentName={coworkingName}>
       <div className="w-full h-[70%] relative rounded-t-lg bg-white mt-5">
-        <Image
+        <Image 
           src={imgSrc}
           alt="Product Picture"
           fill={true}
