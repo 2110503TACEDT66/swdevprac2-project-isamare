@@ -1,7 +1,7 @@
-import { User, UserUpdate } from "../../interface"
+import { UserUpdate } from "../../interface";
 
-export default async function editUserProfile(token: string,userId: string,userUpdate:UserUpdate){
-   const response = await fetch('https://coworking-reservation-app-isamare.vercel.app/api/project/auth/updateMe',{
+export default async function editUserProfile(token: string, userId: string, updatedFields: Partial<UserUpdate>) {
+   const response = await fetch(`${process.env.BACKEND_URL}/api/project/auth/updateMe`, {
       method: "PUT",
       headers: {
          authorization: `Bearer ${token}`,
@@ -13,7 +13,5 @@ export default async function editUserProfile(token: string,userId: string,userU
    if (!response.ok) {
       return await response.json();
    }
-   
-
-   return await response.json()
+   return await response.json();
 }
