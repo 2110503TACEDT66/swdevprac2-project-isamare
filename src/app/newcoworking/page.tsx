@@ -34,7 +34,8 @@ export default function Booking() {
    })
 
     const createCoworking = async (e:FormEvent) => {
-      e.preventDefault();
+      "use server"
+      // e.preventDefault();
       const form = new FormData(e.target as HTMLFormElement)
       console.log(data.name)
         if (data.name && data.address && data.district && data.province && data.postalcode && data.telephone
