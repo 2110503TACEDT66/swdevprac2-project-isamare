@@ -64,6 +64,12 @@ export interface User{
   telephone: string,
   password:string,
 }
+export interface UserUpdate{
+  name:string,
+  email:string,
+  telephone: string,
+  
+}
 
 export interface CoworkingItemCreate{
   name:string,

@@ -15,7 +15,7 @@ export default async function userRegister(userItem:User){
     })
    })
    if(!response.ok){
-      throw new Error("Cannot post booking")
+      return await response.json()
    }
    
 

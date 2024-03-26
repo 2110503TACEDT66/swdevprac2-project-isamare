@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import getUserProfile from "@/libs/getUserProfile";
+import Link from "next/link";
 
 export default async function Profile() {
     const session = await getServerSession(authOptions)
@@ -23,6 +24,14 @@ export default async function Profile() {
                             </tbody>
                         </table>
                 </div>
+                <div className="ml-5">
+                <Link href={`/profile/edit/${session.user._id}`}>
+                  <button className="block rounded-md bg-black hover:bg-indigo-900 px-6 py-2 text-white shadow-sm">
+                    Edit
+                  </button>
+                </Link>
+              </div>
+
             </div>
             
         </main>
