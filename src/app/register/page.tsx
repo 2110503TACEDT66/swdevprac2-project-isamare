@@ -49,7 +49,7 @@ export default function CreateUser() {
       <div className="flex min-h-full w-auto flex-1 flex-col justify-center rounded-3xl px-6 py-12 md:px-15 md:mx-20 lg:mx-[300px]">
         <div className="bg-white p-5 rounded-3xl drop-shadow-xl w-auto">
           <div className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Edit Profile
+            Register
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
