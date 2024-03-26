@@ -7,8 +7,8 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import deleteBooking from "@/libs/deleteBooking";
 import { useRouter } from 'next/navigation';
 import { useSession } from "next-auth/react"
-import getAllUsers from "@/libs/getAllUser";
-import AllUsers from "@/components/Allusers";
+import getAllUsers from "@/libs/getAllUser"
+import AllUsers from "@/components/AllUsers"
 
 export default async function MyBooking() {
     
