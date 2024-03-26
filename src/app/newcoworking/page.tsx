@@ -1,4 +1,4 @@
-
+'use client'
 
 import { useSearchParams } from "next/navigation";
 import dayjs, { Dayjs } from "dayjs";
@@ -9,16 +9,14 @@ import { CoworkingItemCreate } from "../../../interface";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import postCoworking from "@/libs/postCoworking";
-import { revalidateTag } from "next/cache";
-import { redirect } from "next/navigation";
 
 
-export default async function Booking() {
+export default function Booking() {
     const {data: session} = useSession()
     if (!session || !session.user.token || session?.user?.role!=='admin') return null
 
     const dispatch = useDispatch<AppDispatch>()
-   //  const [hasCreated, sethasCreated] = useState(false)
+    const [hasCreated, sethasCreated] = useState(false)
     const [data, setData ] = useState({
       name:"",
       address:"",
@@ -34,8 +32,7 @@ export default async function Booking() {
    })
 
     const createCoworking = async (e:FormEvent) => {
-      "use server"
-      // e.preventDefault();
+      e.preventDefault();
       const form = new FormData(e.target as HTMLFormElement)
       console.log(data.name)
         if (data.name && data.address && data.district && data.province && data.postalcode && data.telephone
@@ -64,8 +61,6 @@ export default async function Booking() {
             else if (creating.success == false) {
                 alert(creating.message)
             }
-            revalidateTag(" cars ")
-            redirect('/coworking')
         }
     }
 
@@ -292,9 +287,9 @@ export default async function Booking() {
                      className="flex w-[40%] m-auto justify-center  rounded-md bg-[#252645] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]"
                      type="submit"
                      >
-                     
-                       Create
-                     
+                     {
+                       hasCreated?'complete':'Create'
+                     }
                      </button>
                   </div>
               </form>
