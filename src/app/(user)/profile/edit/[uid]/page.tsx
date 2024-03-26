@@ -131,14 +131,14 @@ export default function EditProfileUser({params}:{params:{uid:string}}) {
               </div>
 
               <div>
-                <Link href={'/'}>
+                
                   <button
                   className="flex w-[40%] m-auto justify-center  rounded-md bg-[#252645] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 bg-gradient-to-r hover:from-[#252645] hover:to-[#5C5EAB]"
                   type="submit"
                   >
                     {hasEdit ? "complete" : "Edit"}
                   </button>
-                </Link>
+                
                 
               </div>
             </form>
