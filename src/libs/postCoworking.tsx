@@ -3,8 +3,9 @@ import { CoworkingItemCreate } from "../../interface"
 export default async function postCoworking(token: string,coworkingItemCreate : CoworkingItemCreate){
    
     const response = await fetch(`${process.env.BACKEND_URL}/api/project/coworkings`,{
-       method: "POST",
-       headers: {
+     cache: "no-store",
+     method: "POST",
+     headers: {
             "Content-type":"application/json",
             authorization: `Bearer ${token}`,
        },
