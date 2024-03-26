@@ -2,7 +2,7 @@ import { CoworkingItemCreate } from "../../interface"
 
 export default async function postCoworking(token: string,coworkingItemCreate : CoworkingItemCreate){
    
-    const response = await fetch(`https://coworking-reservation-app-isamare.vercel.app/api/project/coworkings`,{
+    const response = await fetch(`${process.env.BACKEND_URL}/api/project/coworkings`,{
        method: "POST",
        headers: {
             "Content-type":"application/json",

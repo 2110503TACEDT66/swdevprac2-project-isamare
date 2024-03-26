@@ -1,7 +1,7 @@
 import { User } from "../../interface"
 
 export default async function userRegister(userItem:User){
-   const response = await fetch('https://coworking-reservation-app-isamare.vercel.app/api/project/auth/register',{
+   const response = await fetch(`${process.env.BACKEND_URL}/api/project/auth/register`,{
       method: "POST",
       headers: {
          "Content-type":"application/json"
@@ -21,3 +21,4 @@ export default async function userRegister(userItem:User){
 
    return await response.json()
 }
+

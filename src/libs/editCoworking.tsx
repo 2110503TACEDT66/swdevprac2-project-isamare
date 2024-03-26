@@ -2,7 +2,7 @@ import { CoworkingItemCreate } from "../../interface"
 
 
 export default async function editCoworking(token: string,coworkingId: string, coworkingItemCreate:CoworkingItemCreate){
-   const response = await fetch(`https://coworking-reservation-app-isamare.vercel.app/api/project/coworkings/${coworkingId}`,{
+   const response = await fetch(`${process.env.BACKEND_URL}/api/project/coworkings/${coworkingId}`,{
        method: "PUT",
        headers: {
          "Content-type":"application/json",
