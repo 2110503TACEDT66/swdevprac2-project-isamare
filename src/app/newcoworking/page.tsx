@@ -9,6 +9,8 @@ import { CoworkingItemCreate } from "../../../interface";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import postCoworking from "@/libs/postCoworking";
+import { revalidateTag } from "next/cache";
+import { redirect } from "next/navigation";
 
 
 export default function Booking() {
@@ -61,6 +63,8 @@ export default function Booking() {
             else if (creating.success == false) {
                 alert(creating.message)
             }
+            revalidateTag(" cars ")
+            redirect('/coworking')
         }
     }
 
