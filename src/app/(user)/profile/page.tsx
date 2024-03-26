@@ -23,14 +23,15 @@ export default async function Profile() {
                                 <tr><td>Member Since</td><td>{'    '}</td><td>{createdAt.toString()}</td></tr>
                             </tbody>
                         </table>
+                        <div className="ml-5">
+                            <Link href={`/profile/edit/${session.user._id}`}>
+                                <button className="block rounded-md bg-black hover:bg-indigo-900 px-6 py-2 text-white shadow-sm">
+                                    Edit
+                                </button>
+                            </Link>
+                    </div>
                 </div>
-                <div className="ml-5">
-                <Link href={`/profile/edit/${session.user._id}`}>
-                  <button className="block rounded-md bg-black hover:bg-indigo-900 px-6 py-2 text-white shadow-sm">
-                    Edit
-                  </button>
-                </Link>
-              </div>
+            
 
             </div>
             
